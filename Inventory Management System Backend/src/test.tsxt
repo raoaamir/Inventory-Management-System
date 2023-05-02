@@ -1,0 +1,49 @@
+Set first_login flag for first time login user in nest js  
+￼
+To set a first_login flag for a user's first time login in NestJS, you can follow these steps:
+
+Add a first_login column to your user model in your database. You can set its default value to true since all new users will have their first login at some point.
+
+In your AuthController or wherever you handle user login, add a check to see if the user's first_login flag is true. If it is, update the flag to false.
+
+For example, assuming you have a User entity and a UserService with a method called updateUser, you can do something like this:
+
+typescript
+￼Copy code
+@Post('login')
+async login(@Body() loginDto: LoginDto, @Req() req: Request): Promise<any> {
+  const user = await this.authService.validateUser(loginDto.email, loginDto.password);
+  if (user) {
+    // Set first_login flag to false if it's true
+    if (user.first_login) {
+      await this.userService.updateUser(user.id, { first_login: false });
+    }
+
+    const token = this.authService.generateToken(user);
+    return { token };
+  }
+  throw new UnauthorizedException();
+}
+In this example, we check if the user's first_login flag is true and update it to false using the updateUser method of the UserService.
+
+Use the first_login flag as needed in your application. For example, you might want to redirect the user to a welcome page or show a message on their first login.
+
+You can access the first_login flag in your controllers or services by using the user object that was returned by your authentication method. For example:
+
+typescript
+￼Copy code
+@Get('profile')
+@UseGuards(AuthGuard())
+async getProfile(@Req() req: Request): Promise<User> {
+  const user = req.user as User;
+  if (user.first_login) {
+    // Do something special for first-time login users
+  }
+
+  return user;
+}
+In this example, we check if the user's first_login flag is true in the getProfile method of a controller protected by an AuthGuard. If it is, we can do something special for first-time login users.
+
+
+$2b$10$ITQJDHbds2yN.KJtDDQ2VOKaTlq8tq5H3QQbELYrC.OclvWNgQwmu
+$2b$08$aypjWbSKZ522tmZe/X7uYOYJvfxXgW/ZW4FC24Co8KTToBl0Kq8qS

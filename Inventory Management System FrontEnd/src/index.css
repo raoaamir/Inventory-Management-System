@@ -1,0 +1,36 @@
+/* .Form{
+  
+         display: 'flex',
+         flexDirection: 'column',
+         justifyContent: 'center',
+         alignItems: 'center',
+         padding: theme.spacing(2),
+    
+         '& .MuiTextField-root': {
+           margin: theme.spacing(1),
+             width: '300px',
+         }
+         /* '& .MuiButtonBase-root': {
+           margin: theme.spacing(2),
+         }, 
+     } */
+
+     .Form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      width: 400px;
+      height: 400px;
+      background-color: brown;
+    
+     }
+
+     .input{
+      width: 360px;
+      
+
+     }
+
+

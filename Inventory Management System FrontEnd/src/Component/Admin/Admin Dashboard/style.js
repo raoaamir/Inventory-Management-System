@@ -1,0 +1,10 @@
+ export const cardStyle = { margin : 'auto' , width:'95%'}
+ export const card = {display : 'flex' , flexDirection : 'row',width: '95%' , margin:'auto'  }
+ export const cardContent = {padding :'30px', width :'25%'}
+ export const typography1 ={ fontSize: 20 , color:'black'}
+ export const arrowIcon ={height : '60px' , width:'70px' ,marginLeft:'-10px', marginBottom : '-20px'}
+ export const typography2 ={ mb:2 , fontSize:14 }
+ export const boxStyle = {display:'flex',flexDirection:'row', margin:'auto', width:'95%' }
+ export const boxWidth = {width:'50%'}
+ export const typography3={ fontSize: 16 , paddingTop :'20px', paddingBottom:'10px' }
+ export const rootStyle ={ display: 'flex', margin: 'auto', flexDirection: 'row' }
